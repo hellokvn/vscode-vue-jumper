@@ -1,6 +1,6 @@
 {
-  "name": "vue-jumper",
-  "displayName": "Vue Jumper",
+  "name": "vue-jumper-2",
+  "displayName": "Vue Jumper 2",
   "description": "Allows goto definition for Vue single-file components.",
   "version": "2.5.0",
   "publisher": "atdow",

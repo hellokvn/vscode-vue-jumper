@@ -107,7 +107,25 @@ const util = {
     currentFilePath: string = ''
   ): object {
     const obj: object = {}
-    // console.log("documentText:", documentText);
+    console.log('aaa1', { documentText })
+    console.log('-- documentFindAllImport')
+
+    try {
+      const scriptSrcMatch = documentText.match(/<script src="([^"]+)"/)
+
+      console.log({ scriptSrcMatch, currentFilePath })
+      if (scriptSrcMatch && scriptSrcMatch.length > 0) {
+        const scriptSrcFilename = scriptSrcMatch[1]
+        const folderPath = path.dirname(currentFilePath)
+        const scriptFilePath = path.join(folderPath, scriptSrcFilename)
+        const scriptFileContent = fs.readFileSync(scriptFilePath, 'utf-8')
+
+        documentText += scriptFileContent
+      }
+    } catch (error) {
+      console.log({ error })
+    }
+
     if (documentText.match(/import.+['"]/)) {
       const importArr: string[] = documentText.match(/(?<!\/\/\s.*|<!--\s.*)import.+['"]/g)
       importArr.forEach((importLineItem) => {

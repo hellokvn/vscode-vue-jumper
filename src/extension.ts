@@ -14,7 +14,7 @@ const languageConfiguration: vscode.LanguageConfiguration = {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  const configParams = vscode.workspace.getConfiguration('vue-jumper')
+  const configParams = vscode.workspace.getConfiguration('vue-jumper2')
   const supportedLanguages = ['vue']
   const aliasConfigs = configParams.get('aliasConfigs') as Array<string>
   const globalComponentsPrefixConfigs = configParams.get('globalComponentsPrefixConfigs') as Array<string>

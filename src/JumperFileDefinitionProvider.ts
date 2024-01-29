@@ -6,9 +6,9 @@
  * @Description: file description
  */
 import * as vscode from 'vscode'
+import { IAliasConfigsItem, ILineInfo } from './types'
 const util = require('./util')
 const fs = require('fs')
-import { IAliasConfigsItem, ILineInfo } from './types'
 
 export default class JumperFileDefinitionProvider implements vscode.DefinitionProvider {
   aliasConfigs: IAliasConfigsItem[] = []
